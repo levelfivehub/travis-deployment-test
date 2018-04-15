@@ -10,11 +10,11 @@ after_success:
 
 jobs:
   include:
-  - stage: test
-    if: branch IN (master, devel) OR branch =~ ^version-
+  - stage: preview
+    if: branch IN (master, devel)
     script:
     - echo "I'm testing..."
-  - stage: publish
-    if: branch IN (master, devel) OR branch =~ ^version-
+  - stage: production
+    if: master
     script:
     - echo "I'm publishing..."
