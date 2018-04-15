@@ -1,0 +1,9 @@
+language: generic
+
+addons:
+  apt:
+    packages:
+    - lftp
+
+after_success:
+- travis_wait bash infrastructure/deploy.sh
