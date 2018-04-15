@@ -7,3 +7,14 @@ addons:
 
 after_success:
 - travis_wait bash scripts/deploy.sh
+
+jobs:
+  include:
+  - stage: test
+    if: branch IN (master, devel) OR branch =~ ^version-
+    script:
+    - echo "I'm testing..."
+  - stage: publish
+    if: branch IN (master, devel) OR branch =~ ^version-
+    script:
+    - echo "I'm publishing..."
