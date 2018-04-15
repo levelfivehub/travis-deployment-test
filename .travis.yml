@@ -6,4 +6,4 @@ addons:
     - lftp
 
 after_success:
-- travis_wait bash infrastructure/deploy.sh
+- travis_wait bash scripts/deploy.sh
