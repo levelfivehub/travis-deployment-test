@@ -1,7 +1,7 @@
 #!/bin/bash
 ssh-keygen -p -P "$DEPLOY_PASS" -N '' -f deploy_key
 eval "$(ssh-agent -s)" && ssh-add deploy_key
-ssh nyeuk@nyeuk.com << EOF
+yes | ssh nyeuk@nyeuk.com << EOF
 cd public_html
 if [ -d ".git" ]; then
     git pull
