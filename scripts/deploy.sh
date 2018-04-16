@@ -3,7 +3,7 @@ eval "$(ssh-agent -s)" # Start ssh-agent cache
 chmod 600 .travis/nyeuk_travis_deploy # Allow read access to the private key
 ssh-add .travis/nyeuk_travis_deploy # Add the private key to SSH
 
-ssh nyeuk@nyeuk.com << EOF
+ssh -o StrictHostKeyChecking=no nyeuk@nyeuk.com << EOF
 cd public_html
 if [ -d ".git" ]; then
     git pull
