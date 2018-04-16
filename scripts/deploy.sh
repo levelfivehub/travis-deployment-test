@@ -2,7 +2,7 @@
 DIRECTORY="public_html"
 
 if [ "$TRAVIS_BRANCH" == "develop" ]; then
-    DIRECTORY = "preview"
+    DIRECTORY="preview"
 fi
 
 
