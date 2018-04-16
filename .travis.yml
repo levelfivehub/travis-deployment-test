@@ -1,10 +1,10 @@
 language: generic
 addons:
-  apt:
-    packages:
-    - lftp
+  ssh_known_hosts: nyeuk.com
+script:
+  - chmod +x scripts/deploy.sh
 after_success:
-- scripts/deploy.sh
+- bash scripts/deploy.sh
 jobs:
   include:
   - stage: preview
