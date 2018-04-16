@@ -8,7 +8,7 @@ after_success:
 jobs:
   include:
   - stage: preview
-    if: branch IN (master, develop)
+    if: branch = develop
     script:
     - echo "I'm testing..."
   - stage: production
