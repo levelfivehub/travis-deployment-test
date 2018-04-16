@@ -1,7 +1,9 @@
 #!/bin/bash
-ssh-keygen -p -P "$DEPLOY_PASS" -N '' -f deploy_key
-eval "$(ssh-agent -s)" && ssh-add deploy_key
-yes | ssh nyeuk@nyeuk.com << EOF
+eval "$(ssh-agent -s)" # Start ssh-agent cache
+chmod 600 .travis/nyeuk_travis_deploy # Allow read access to the private key
+ssh-add .travis/nyeuk_travis_deploy # Add the private key to SSH
+
+ssh nyeuk@nyeuk.com << EOF
 cd public_html
 if [ -d ".git" ]; then
     git pull
