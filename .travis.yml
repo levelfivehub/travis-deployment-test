@@ -6,7 +6,7 @@ addons:
     - lftp
 
 after_success:
-- travis_wait bash scripts/deploy.sh
+- scripts/deploy.sh
 
 jobs:
   include:
@@ -15,6 +15,6 @@ jobs:
     script:
     - echo "I'm testing..."
   - stage: production
-    if: master
+    if: branch=master
     script:
     - echo "I'm publishing..."
